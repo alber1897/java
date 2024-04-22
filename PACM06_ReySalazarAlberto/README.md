@@ -31,15 +31,15 @@
                 -Libro: Título, Autor, Año de publicación
                 -Lector: Nombre, Apellido, Email
 
-        3.2 - Listado de Libros/Lectores: Nos mostrará por pantalla el conjunto de libros/lectores totales que disponemos en la base de datos al marcar la opción 2. Los libros/lectores se muestran de uno en uno mediante un bucle que recorre una lista la cual nos devuelve este método.
+        3.2 - Listado de Libros/Lectores: Nos mostrará por pantalla el conjunto de libros/lectores totales que disponemos en la base de datos al marcar la opción mostrada en el menú. Los libros/lectores se muestran de uno en uno mediante un bucle que recorre una lista la cual nos devuelve este método.
 
-        3.3 - Libro/Lector por ID: Para este método se utiliza la ID pa la hora de busca un libro/lector concreto, puesto que es la clave primaria de esta tabla. Al marcar la opción 3 del menu deberemos proporcionar la id del libro/lector a buscar a través de la consola, y esta nos devolverá el resultado en caso de que el libro exista o un mensaje por defecto en caso de que no este.
+        3.3 - Libro/Lector por ID: Para este método se utiliza la ID pa la hora de busca un libro/lector concreto, puesto que es la clave primaria de estas tablas. Al marcar la opción del menu deberemos proporcionar la ID del libro/lector a buscar, a través de la consola, y esta nos devolverá el resultado en caso de que el libro/lector exista o un mensaje por defecto en caso de que no.
 
         IMPORTANTE: Para poder saber la id del libro/lector se recomienda utilizar la opción listar del menu, de esta forma nos sacará todos los libros/lectores disponibles.
 
         3.4 - Eliminar Libro/Lector por ID: Para realizar esta opción, al igual que en la anterior, deberemos proporciona la ID de libro/lector que queremos eliminar, podemos ayudarnos del mensaje anteriormente escrito para la obtención del ID correcto. Es un método el cual debe ser tratado con cuidado, puesto que elimina datos definitivamente y puede ser delicado.
 
-        3.5 - Modificar Libro/Lector por ID: La modificación de datos al igual que el listado y eliminación nos solicitará una id para poder editar los datos concretos de un ejemplar. Una vez ofrezcamos esta ID, se nos mostrará por consola una serie de mensajes solicitando los nuevos datos, cuando hayamos realizado estos pasos, se nos mostrará un mensaje de éxito en la modificación u error en su defecto.
+        3.5 - Modificar Libro/Lector por ID: La modificación de datos al igual que el listado y eliminación nos solicitará una ID para poder editar los datos concretos de un ejemplar. Una vez ofrezcamos esta ID, se nos mostrará por consola una serie de mensajes solicitando los nuevos datos, cuando hayamos realizado estos pasos, se nos mostrará un mensaje de éxito en la modificación u error en su defecto.
 
         *****************
         *** CONSULTAS ***
