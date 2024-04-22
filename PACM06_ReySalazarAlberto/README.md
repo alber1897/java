@@ -5,15 +5,17 @@
     ***                                                  ***
     ********************************************************
 
-    1- Para probar esta aplicación, en primer lugar debemos ir al archivo de configuración
-    de Hibernate, donde pondremos usuario y contraseña de nuestro MySQL. Una vez hecho esto 
-    podemos iniciar la aplicación desde la clase Main. (ASEGURAR TENER MYSQL ENCENDIDO CON 
-    EL CORRESPONDIENTE PUERTO)
+    1- Para probar esta aplicación, en primer lugar debemos importar la carpeta de proyecto
+    en el IDE que más nos guste, posteriormente ir al archivo de configuración de Hibernate
+    (src/main/resources/hibernate.cfg.xml), donde pondremos usuario y contraseña de nuestro
+    MySQL. Una vez hecho esto podemos iniciar la aplicación desde la clase Main.
+
+    (ASEGURAR TENER MYSQL ENCENDIDO CON EL CORRESPONDIENTE PUERTO)
 
     2- Este proyecto se encuentra configurado de forma que si la base de datos no existe 
     automáticamente el programa la va a crear, con las tablas y relaciones correspondientes.
 
-    3- Una vez desplegada la aplicación desde la clase Main, podremos ver por consola un menu* en donde nos salen
+    3- Una vez desplegada la aplicación desde la clase Main, podremos ver por consola un menu* en donde nos saldrán
     las diferentes opciones que tenemos para esta biblioteca que hemos creado. 
 
     IMPORTANTE: Los metodos han sido creados de manera estructurada en clases externas al Main con el finde una mayor limpieza y eficacia en el codigo. Lo único que se maneja desde la clase principal es las llamadas a estos y que la opción del menú que se ha elegido sea válida.
@@ -22,7 +24,12 @@
 
     IMPORTANTE 2: Con el fin de poder realizar unas pruebas correctas, se recomienda el uso de las funciones 1 y 6 del menú como primeras opciones del programa para poder disponer de libros y lectores con los cuales tratar el resto de datos y funciones. 
 
-        3.1 - Insertar Libro/Lector: Método que nos permitirá la creación de nuevos ejemplares/lectores, marcando la opción  del menu se activa esta función, la cual nos requerira por consola una serie de datos para la creación del libro/lector.
+        3.1 - Insertar Libro/Lector: Método que nos permitirá la creación de nuevos ejemplares/lectores, marcando la opción  del menu se activa esta función, la cual nos requerira por consola una serie de datos para la creación del libro/lector. 
+
+            3.1.2 - PARÁMETROS REQUERIDOS: 
+
+                -Libro: Título, Autor, Año de publicación
+                -Lector: Nombre, Apellido, Email
 
         3.2 - Listado de Libros/Lectores: Nos mostrará por pantalla el conjunto de libros/lectores totales que disponemos en la base de datos al marcar la opción 2. Los libros/lectores se muestran de uno en uno mediante un bucle que recorre una lista la cual nos devuelve este método.
 
