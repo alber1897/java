@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <hibernate-mapping>
 	<class name="PAC.Libro" table="libros" catalog="pac">
 		<id name="idLibro">
