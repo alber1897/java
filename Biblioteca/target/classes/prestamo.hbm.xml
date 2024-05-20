@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<hibernate-mapping>
+	<class name="PAC.Prestamo" table="prestamos" catalog="pac">
+		<id name="idPrestamo">
+			<column name="id"></column>
+			<generator class="identity"></generator>
+		</id>
+		<property name="fecha_prestamo" type="date"></property>
+		<property name="fecha_devolucion" type="date"></property>
+		<many-to-one name="libro" class="PAC.Libro" column="id_libro" />
+		<many-to-one name="lector" class="PAC.Lector" column="id_lector" />
+
+	</class>
+</hibernate-mapping>

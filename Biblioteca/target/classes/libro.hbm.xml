@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="PAC.Libro" table="libros" catalog="pac">
+		<id name="idLibro">
+			<column name="id"></column>
+			<generator class="identity"></generator>
+		</id>
+		<property name="titulo"></property>
+		<property name="autor"></property>
+		<property name="anio_publicacion" type="integer"></property>
+		<property name="disponible" type="boolean"></property>
+	</class>
+</hibernate-mapping>
