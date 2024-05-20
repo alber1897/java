@@ -6,15 +6,15 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import com.projetsars.appbanco.DAO.BancoDao;
+import com.projetsars.appbanco.DAO.ClienteDao;
+import com.projetsars.appbanco.DAO.CuentaDao;
+import com.projetsars.appbanco.DAO.SucursalDao;
 import com.projetsars.appbanco.model.Banco;
 import com.projetsars.appbanco.model.Cliente;
 import com.projetsars.appbanco.model.Cuenta;
 import com.projetsars.appbanco.model.Sucursal;
 
-import DAO.BancoDao;
-import DAO.ClienteDao;
-import DAO.CuentaDao;
-import DAO.SucursalDao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

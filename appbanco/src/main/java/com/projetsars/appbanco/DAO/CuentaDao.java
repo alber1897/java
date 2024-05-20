@@ -1,4 +1,4 @@
-package DAO;
+package com.projetsars.appbanco.DAO;
 
 import com.projetsars.appbanco.model.Cuenta;
 

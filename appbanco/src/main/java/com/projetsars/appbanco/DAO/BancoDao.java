@@ -1,25 +1,24 @@
-package DAO;
+package com.projetsars.appbanco.DAO;
 
-import com.projetsars.appbanco.model.Cliente;
+import com.projetsars.appbanco.model.Banco;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 
-public class ClienteDao {
-
+public class BancoDao {
     private EntityManager entityManager;
 
-    public ClienteDao(EntityManager entityManager){
+    public BancoDao(EntityManager entityManager){
         this.entityManager = entityManager;
     }
 
-    public long aniadir(Cliente cliente){
+    public long aniadir(Banco banco){
         try{
             entityManager.getTransaction().begin();
-            entityManager.persist(cliente);
+            entityManager.persist(banco);
             entityManager.getTransaction().commit();
 
-            return cliente.getId();
+            return banco.getId();
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
                 entityManager.getTransaction().rollback();
@@ -29,16 +28,16 @@ public class ClienteDao {
         }
     }
 
-    public Cliente buscarPorId(long id){
+    public Banco buscarPorId(long id){
         try{
             entityManager.getTransaction().begin();
-            Cliente cliente = entityManager.find(Cliente.class, id);
+            Banco banco = entityManager.find(Banco.class, id);
             entityManager.getTransaction().commit();
 
-            if(cliente!= null){
-                return cliente;
+            if(banco!= null){
+                return banco;
             }else{
-                throw new EntityNotFoundException("Cliente con ID " + id + " no encontrado");
+                throw new EntityNotFoundException("Banco con ID " + id + " no encontrado");
             }
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
@@ -48,21 +47,19 @@ public class ClienteDao {
             return null;
         }
     }
-    public String actualizar(Cliente cliente){
+    public String actualizar(Banco banco){
         try{
             entityManager.getTransaction().begin();
-            Cliente clienteBd = entityManager.find(Cliente.class, cliente.getId());
-            if(null != clienteBd){
-                clienteBd.setNombre(cliente.getNombre());
-                clienteBd.setApellidos(cliente.getApellidos());
-                clienteBd.setFecha_nacimiento(cliente.getFecha_nacimiento());
-                clienteBd.setSucursal(cliente.getSucursal());
+            Banco bancoBd = entityManager.find(Banco.class, banco.getId());
+            if(null != bancoBd){
+                bancoBd.setNombre(banco.getNombre());
+                bancoBd.setPais(banco.getPais());
 
-                entityManager.merge(clienteBd);
+                entityManager.merge(bancoBd);
                 entityManager.getTransaction().commit();
-                return "Cliente actualizado con exito";
+                return "Banco actualizado con exito";
             }else{
-                return "Cliente no encontrado";
+                return "Banco no encontrado";
             }
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
@@ -76,10 +73,10 @@ public class ClienteDao {
         try{
 
             entityManager.getTransaction().begin();
-            Cliente cliente = entityManager.find(Cliente.class, id);
-            entityManager.remove(cliente);
+            Banco banco = entityManager.find(Banco.class, id);
+            entityManager.remove(banco);
             entityManager.getTransaction().commit();
-            return "Cliente eliminado con exito";
+            return "Banco eliminado con exito";
 
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){

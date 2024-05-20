@@ -1,24 +1,25 @@
-package DAO;
+package com.projetsars.appbanco.DAO;
 
-import com.projetsars.appbanco.model.Sucursal;
+import com.projetsars.appbanco.model.Cliente;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 
-public class SucursalDao {
+public class ClienteDao {
+
     private EntityManager entityManager;
 
-    public SucursalDao(EntityManager entityManager){
+    public ClienteDao(EntityManager entityManager){
         this.entityManager = entityManager;
     }
 
-    public long aniadir(Sucursal sucursal){
+    public long aniadir(Cliente cliente){
         try{
             entityManager.getTransaction().begin();
-            entityManager.persist(sucursal);
+            entityManager.persist(cliente);
             entityManager.getTransaction().commit();
 
-            return sucursal.getId();
+            return cliente.getId();
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
                 entityManager.getTransaction().rollback();
@@ -28,16 +29,16 @@ public class SucursalDao {
         }
     }
 
-    public Sucursal buscarPorId(long id){
+    public Cliente buscarPorId(long id){
         try{
             entityManager.getTransaction().begin();
-            Sucursal sucursal = entityManager.find(Sucursal.class, id);
+            Cliente cliente = entityManager.find(Cliente.class, id);
             entityManager.getTransaction().commit();
 
-            if(sucursal!= null){
-                return sucursal;
+            if(cliente!= null){
+                return cliente;
             }else{
-                throw new EntityNotFoundException("Sucursal con ID " + id + " no encontrada");
+                throw new EntityNotFoundException("Cliente con ID " + id + " no encontrado");
             }
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
@@ -47,25 +48,27 @@ public class SucursalDao {
             return null;
         }
     }
-    public String actualizar(Sucursal sucursal){
+    public String actualizar(Cliente cliente){
         try{
             entityManager.getTransaction().begin();
-            Sucursal sucursalBd = entityManager.find(Sucursal.class, sucursal.getId());
-            if(null != sucursalBd){
-                sucursalBd.setNombre(sucursal.getNombre());
-                sucursalBd.setUbicacion(sucursal.getUbicacion());
+            Cliente clienteBd = entityManager.find(Cliente.class, cliente.getId());
+            if(null != clienteBd){
+                clienteBd.setNombre(cliente.getNombre());
+                clienteBd.setApellidos(cliente.getApellidos());
+                clienteBd.setFecha_nacimiento(cliente.getFecha_nacimiento());
+                clienteBd.setSucursal(cliente.getSucursal());
 
-                entityManager.merge(sucursalBd);
+                entityManager.merge(clienteBd);
                 entityManager.getTransaction().commit();
-                return "Sucursal actualizada con exito";
+                return "Cliente actualizado con exito";
             }else{
-                return "Sucursal no encontrado";
+                return "Cliente no encontrado";
             }
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
                 entityManager.getTransaction().rollback();
             }
-            return "Ha ocurrido un error: " + e.getMessage();
+            return "Ha ocurrido un erro: " + e.getMessage();
         }
     }
     
@@ -73,10 +76,10 @@ public class SucursalDao {
         try{
 
             entityManager.getTransaction().begin();
-            Sucursal sucursal = entityManager.find(Sucursal.class, id);
-            entityManager.remove(sucursal);
+            Cliente cliente = entityManager.find(Cliente.class, id);
+            entityManager.remove(cliente);
             entityManager.getTransaction().commit();
-            return "Sucursal eliminada con exito";
+            return "Cliente eliminado con exito";
 
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
@@ -86,4 +89,5 @@ public class SucursalDao {
             return "Ha ocurrido un error: " + e.getMessage();
         }
     }
+
 }

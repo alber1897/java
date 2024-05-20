@@ -1,24 +1,24 @@
-package DAO;
+package com.projetsars.appbanco.DAO;
 
-import com.projetsars.appbanco.model.Transacciones;
+import com.projetsars.appbanco.model.Sucursal;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 
-public class TransaccionesDao {
+public class SucursalDao {
     private EntityManager entityManager;
 
-    public TransaccionesDao(EntityManager entityManager){
+    public SucursalDao(EntityManager entityManager){
         this.entityManager = entityManager;
     }
 
-    public long aniadir(Transacciones transaccion){
+    public long aniadir(Sucursal sucursal){
         try{
             entityManager.getTransaction().begin();
-            entityManager.persist(transaccion);
+            entityManager.persist(sucursal);
             entityManager.getTransaction().commit();
 
-            return transaccion.getId();
+            return sucursal.getId();
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
                 entityManager.getTransaction().rollback();
@@ -28,16 +28,16 @@ public class TransaccionesDao {
         }
     }
 
-    public Transacciones buscarPorId(long id){
+    public Sucursal buscarPorId(long id){
         try{
             entityManager.getTransaction().begin();
-            Transacciones transaccion = entityManager.find(Transacciones.class, id);
+            Sucursal sucursal = entityManager.find(Sucursal.class, id);
             entityManager.getTransaction().commit();
 
-            if(transaccion!= null){
-                return transaccion;
+            if(sucursal!= null){
+                return sucursal;
             }else{
-                throw new EntityNotFoundException("Transaccion con ID " + id + " no encontrada");
+                throw new EntityNotFoundException("Sucursal con ID " + id + " no encontrada");
             }
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
@@ -47,27 +47,25 @@ public class TransaccionesDao {
             return null;
         }
     }
-    public String actualizar(Transacciones transaccion){
+    public String actualizar(Sucursal sucursal){
         try{
             entityManager.getTransaction().begin();
-            Transacciones transaccionBd = entityManager.find(Transacciones.class, transaccion.getId());
-            if(null != transaccionBd){
-                transaccionBd.setFecha(transaccion.getFecha());
-                transaccionBd.setCuentaOrigen(transaccion.getCuentaOrigen());
-                transaccionBd.setCuentaDestino(transaccion.getCuentaDestino());
-                transaccion.setCantidad(transaccion.getCantidad());
+            Sucursal sucursalBd = entityManager.find(Sucursal.class, sucursal.getId());
+            if(null != sucursalBd){
+                sucursalBd.setNombre(sucursal.getNombre());
+                sucursalBd.setUbicacion(sucursal.getUbicacion());
 
-                entityManager.merge(transaccionBd);
+                entityManager.merge(sucursalBd);
                 entityManager.getTransaction().commit();
-                return "Transaccion actualizado con exito";
+                return "Sucursal actualizada con exito";
             }else{
-                return "Transaccion no encontrado";
+                return "Sucursal no encontrado";
             }
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
                 entityManager.getTransaction().rollback();
             }
-            return "Ha ocurrido un erro: " + e.getMessage();
+            return "Ha ocurrido un error: " + e.getMessage();
         }
     }
     
@@ -75,10 +73,10 @@ public class TransaccionesDao {
         try{
 
             entityManager.getTransaction().begin();
-            Transacciones transaccion = entityManager.find(Transacciones.class, id);
-            entityManager.remove(transaccion);
+            Sucursal sucursal = entityManager.find(Sucursal.class, id);
+            entityManager.remove(sucursal);
             entityManager.getTransaction().commit();
-            return "Transaccion eliminado con exito";
+            return "Sucursal eliminada con exito";
 
         }catch(Exception e){
             if(entityManager.getTransaction().isActive()){
