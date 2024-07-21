@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fonts/Audiowide-Regular.ttf">
+    <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preload" href="css/index.css" as="style">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/4.1.3-bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+</head>
+<body>
+
+    <section class="panel">
+        <div class="main">
+    
+            <div class="login-panel" id="loginPanel">
+                <h2 class="text-center">Sign In</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" id="signin" class="btn btn-info btn-block">Iniciar Sesión</button><br>
+                    <button type="button" class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</button>
+                </form>
+                
+            </div>
+
+            <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h5 class="modal-title" id="registerModalLabel">Nuevo Usuario</h5>
+						<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						</div>
+						<div class="modal-body">
+						<form id="register">
+
+							<div class="mb-3">
+								<label for="registerUser" class="form-label">Usuario</label>
+								<input type="text" class="form-control" id="registerUser" name="registerUser">
+							</div>
+							<div class="mb-3">
+								<label for="registerPassword" class="form-label">Contraseña</label>
+								<input type="password" class="form-control" id="registerPassword" name="registerPassword">
+							</div>
+							<div class="mb-3">
+								<label for="registerName" class="form-label">Nombre</label>
+								<input type="text" class="form-control" id="registerName" name="registerName">
+							</div>
+							<div class="mb-3">
+								<label for="registerLastName" class="form-label">Apellidos</label>
+								<input type="text" class="form-control" id="registerLastName" name="registerLastName">
+							</div>
+							<div class="mb-3">
+								<label for="registerEmail" class="form-label">Correo Electrónico</label>
+								<input type="text" class="form-control" id="registerEmail" name="registerEmail">
+							</div>
+							<div class="mb-3">
+								<label for="registerPhone" class="form-label">Teléfono</label>
+								<input type="text" class="form-control" id="registerPhone" name="registerPhone">
+							</div>
+							<br>
+							<div class="center-button">
+							<button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+							</div>
+						</form>
+						</div>
+					</div>
+                </div>
+            </div>
+  
+          </div>    
+          </div>
+
+    </section>
+ 
+    <script src="/js/index.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
